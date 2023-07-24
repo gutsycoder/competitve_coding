@@ -6,14 +6,18 @@ int getIthBit(int n,int i){
     return (n<<i & n)>0?1:0;
     
 }
-void updateIthBit(int i,int n , int v){
-    //code for updating the ith bit 
-}
-
 void clearIthBit(int n , int i){
     int mask = ~(1<<i);
     n= n&mask;
 }
+
+void updateIthBit(int &n,int i , int v){
+    //code for updating the ith bit 
+    clearIthBit(n,i);
+    int mask  =(v<<i);
+    n=n|mask;
+}
+
 
 
 void setIthBit(int &n,int i){
@@ -23,16 +27,20 @@ void setIthBit(int &n,int i){
 int main() {
     // Write C++ code here
     cout << "Hello world!"<<endl;
-    int n=5;
+    int n=13;
     int i;
     cin>>i;
-    setIthBit(n,i);
-    cout<<n;
+    // setIthBit(n,i);
+    // cout<<n;
     
-    cout<<getIthBit(n,i) <<endl;
+    // cout<<getIthBit(n,i) <<endl;
     
-    clearIthBit(n,i);
+    // clearIthBit(n,i);
     
-    cout<< n<<endl;
+    //cout<< n<<endl;
+    updateIthBit(n,i,1);
+    cout<<n<<endl;
+
+
     return 0;
 }
